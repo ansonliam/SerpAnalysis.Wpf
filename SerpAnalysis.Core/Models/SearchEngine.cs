@@ -5,7 +5,7 @@ namespace SerpAnalysis.Core.Models
 {
     public class SearchEngine
     {
-        public SearchEngine(Country country, Provider provider, string searchEngineDomain, Parameter parameters)
+        public SearchEngine(Country country, Provider provider, string searchEngineDomain, SearchEngineParameter parameters)
         {
             Country = country;
             Provider = provider;
@@ -31,7 +31,7 @@ namespace SerpAnalysis.Core.Models
             }
         }
 
-        public Parameter Parameters { get; set; }
+        public SearchEngineParameter Parameters { get; set; }
     }
 
 

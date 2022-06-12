@@ -16,13 +16,10 @@ namespace SerpAnalysis.Core.Models
 
         private IList<SearchResultLine> _rankingRecords;
 
-        public SearchResult(SearchQueryWithEngine searchQuery, string rawData, bool autoStartProcessRawData = true)
+        public SearchResult(SearchQueryWithEngine searchQueryWithEngine, string rawData)
         {
-            SearchQuery = searchQuery;
+            SearchQuery = searchQueryWithEngine;
             RawData = rawData;
-
-            if (autoStartProcessRawData)
-                ProcessRawData();
         }
 
         public SearchQueryWithEngine SearchQuery { get; }
@@ -36,10 +33,5 @@ namespace SerpAnalysis.Core.Models
         public string RawData { get; }
 
         private ICrawler C { get; set; }
-
-        public void ProcessRawData()
-        {
-            
-        }
     }
 }

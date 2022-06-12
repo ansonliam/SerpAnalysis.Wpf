@@ -3,3 +3,6 @@ SerpAnalysis.Core/bin
 SerpAnalysis.Core/obj
 .vs/SerpAnalysis.Wpf/DesignTimeBuild/.dtbcache.v2
 .vs/SerpAnalysis.Wpf/v17/.futdcache.v1
+SerpAnalysis.Test/bin
+SerpAnalysis.Test/obj
+SerpAnalysis.Wpf.sln.DotSettings.user

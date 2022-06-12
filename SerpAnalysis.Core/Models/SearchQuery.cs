@@ -17,8 +17,8 @@ namespace SerpAnalysis.Core.Models
 
         public SearchQuery(string keyword, string companyDomain)
         {
-            _keyword = keyword;
-            _companyDomain = companyDomain;
+            Keyword = keyword;
+            CompanyDomain = companyDomain;
         }
 
         public string Keyword
@@ -30,7 +30,17 @@ namespace SerpAnalysis.Core.Models
         public string CompanyDomain
         {
             get => _companyDomain;
-            set => SetProperty(ref _companyDomain, value);
+            set
+            {
+                var domain = value.Trim().ToLower().Replace("https://", "");
+
+                if (domain.Substring(0, 4) == "www.")
+                {
+                    domain = domain.Substring(4, domain.Length - 4);
+                }
+
+                SetProperty(ref _companyDomain, domain);
+            }
         }
     }
 }

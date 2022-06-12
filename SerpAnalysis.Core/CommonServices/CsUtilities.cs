@@ -1,4 +1,7 @@
-﻿namespace SerpAnalysis.Core.CommonServices
+﻿using System.Xml;
+using System.Xml.Serialization;
+
+namespace SerpAnalysis.Core.CommonServices
 {
     public class CsUtilities
     {
@@ -18,7 +21,7 @@
             foreach (var option in options)
             {
                 //either the input is null or matched. If the value provided has a value but not match, it will skip.
-                if (option.ToUpper().Contains(input1Name) && option.Contains(input2Name))
+                if (option.ToUpper().Contains(input1Name) && option.ToUpper().Contains(input2Name))
                 {
                     TOutput s = GetEnumValue<TOutput>(option);
                     return s;

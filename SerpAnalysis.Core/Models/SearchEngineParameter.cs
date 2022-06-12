@@ -3,9 +3,9 @@
     /// <summary>
     /// This class contains the parameters used by Search Engine in the url.
     /// </summary>
-    public struct Parameter
+    public struct SearchEngineParameter
     {
-        public Parameter(string count, string queryParameterName = "q")
+        public SearchEngineParameter(string count, string queryParameterName = "q")
         {
             Count = count;
             QueryParameterName = queryParameterName;

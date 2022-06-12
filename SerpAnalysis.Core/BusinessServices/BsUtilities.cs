@@ -7,7 +7,7 @@ namespace SerpAnalysis.Core.BusinessServices
     {
         public static SearchEngine GetGoogleAuSearchEngine()
         {
-            return new SearchEngine(Country.Au, Provider.Google, "google.com.au", new Parameter("num"));
+            return new SearchEngine(Country.Au, Provider.Google, "google.com.au", new SearchEngineParameter("num"));
         }
     }
 }
