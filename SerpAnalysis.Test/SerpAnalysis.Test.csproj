@@ -23,7 +23,7 @@
     <Content Include="GoodSampleHtmlSourceFromCode\Source4.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="GoodSampleHtmlSourceFromCode\Source2.html">
+    <Content Include="GooleSampleHtmlSourceFromBrowser\Source2.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
