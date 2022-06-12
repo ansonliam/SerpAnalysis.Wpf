@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+
+namespace SerpAnalysis.Core.Models
+{
+    public class SearchQueryWithEngine : ObservableObject
+    {
+        private SearchQuery _query;
+        private SearchEngine _engine;
+
+        public SearchQueryWithEngine(SearchQuery query, SearchEngine engine)
+        {
+            Query = query;
+            Engine = engine;
+        }
+
+        public SearchQuery Query
+        {
+            get => _query;
+            set => SetProperty(ref _query, value);
+        }
+
+        public SearchEngine Engine
+        {
+            get => _engine;
+            set => SetProperty(ref _engine, value);
+        }
+
+        public SearchResult SearchResult { get; set; }
+    }
+}
