@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.VisualBasic;
 using NUnit.Framework;
 using SerpAnalysis.Core.BusinessServices;
 using SerpAnalysis.Core.Models;
@@ -10,7 +11,7 @@ using SerpAnalysis.Test.Mock;
 
 namespace SerpAnalysis.Test
 {
-    public class Tests
+    public class ServiceTest
     {
         [SetUp]
         public void Setup()
@@ -63,6 +64,7 @@ namespace SerpAnalysis.Test
             var s = new CrawlerIntegrationService();
             var r = await s.GetHttpResponse(sqWithEngine.EncodeUrlWithKeywords());
 
+            var content = await r.Content.ReadAsStringAsync();
 
             Assert.AreEqual(HttpStatusCode.OK, r.StatusCode);
         }
