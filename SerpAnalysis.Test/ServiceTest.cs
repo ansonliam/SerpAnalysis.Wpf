@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 using NUnit.Framework;
@@ -57,16 +58,29 @@ namespace SerpAnalysis.Test
         [Test]
         public async Task TestCrawlerIntegrationService()
         {
-            var sq = new SearchQuery("conveyancing software", "smokeball.com.au");
-            var se = BsUtilities.GetGoogleAuSearchEngine();
-            var sqWithEngine = new SearchQueryWithEngine(sq, se);
+            var records = TestCommonService.GetRecordsFromCsv("TestSamples/ServiceTest/TestCrawlerIntegrationService.csv");
 
-            var s = new CrawlerIntegrationService();
-            var r = await s.GetHttpResponse(sqWithEngine.EncodeUrlWithKeywords());
+            var currIndex = 0;
+            var recordCount = records.Count;
+            foreach (var record in records)
+            {
+                currIndex++;
+                var sq = new SearchQuery(record.SearchTerm, record.UrlDomain);
+                var se = BsUtilities.GetGoogleAuSearchEngine();
+                var sqWithEngine = new SearchQueryWithEngine(sq, se);
 
-            var content = await r.Content.ReadAsStringAsync();
+                var s = new CrawlerIntegrationService();
+                var res = await s.GetHttpResponse(sqWithEngine.EncodeUrlWithKeywords());
 
-            Assert.AreEqual(HttpStatusCode.OK, r.StatusCode);
+                var content = await res.Content.ReadAsStringAsync();
+
+                Assert.AreEqual(HttpStatusCode.OK, res.StatusCode);
+
+                if (currIndex < recordCount) //skip the sleep for the last record
+                {
+                    Thread.Sleep(5000); // sleep 5 seconds before calling Google to reduce the chance of being detected as bot 
+                }
+            }
         }
     }
 }

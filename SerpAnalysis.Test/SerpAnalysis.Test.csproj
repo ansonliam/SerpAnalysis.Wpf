@@ -8,27 +8,28 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="TestSamples\GoodSampleHtmlSourceFromCode\Source1.html" />
-    <None Remove="TestSamples\GoodSampleHtmlSourceFromCode\Source3.html" />
-    <None Remove="TestSamples\GoodSampleHtmlSourceFromCode\Source4.html" />
+    <None Remove="TestSamples\ServiceTest\GoodSampleHtmlSourceFromCode\conveyancing software 2.html" />
+    <None Remove="TestSamples\ServiceTest\GoodSampleHtmlSourceFromCode\conveyancing software 3.html" />
+    <None Remove="TestSamples\ServiceTest\GoodSampleHtmlSourceFromCode\conveyancing software.html" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="TestSamples\GoodSampleHtmlSourceFromCode\Source1.html">
+    <Content Include="TestSamples\ServiceTest\GoodSampleHtmlSourceFromCode\conveyancing software.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestSamples\GoodSampleHtmlSourceFromCode\Source3.html">
+    <Content Include="TestSamples\ServiceTest\GoodSampleHtmlSourceFromCode\conveyancing software 2.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestSamples\GoodSampleHtmlSourceFromCode\Source4.html">
+    <Content Include="TestSamples\ServiceTest\GoodSampleHtmlSourceFromCode\conveyancing software 3.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestSamples\GooleSampleHtmlSourceFromBrowser\Source2.html">
+    <Content Include="TestSamples\ServiceTest\GooleSampleHtmlSourceFromBrowser\best bike.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="27.2.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
     <PackageReference Include="NUnit" Version="3.13.2" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
@@ -40,10 +41,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="TestSamples\GooleSampleHtmlSourceFromBrowser\Source5.html">
+    <None Update="TestSamples\ModelTest\FakeCompanyDomains.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestSamples\GoodSampleHtmlSourceFromCode\Source6.html">
+    <None Update="TestSamples\ServiceTest\BadSameHtmlSources\too_many_requests_best_bike.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestSamples\ServiceTest\GoodSampleHtmlSourceFromCode\it software.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestSamples\ServiceTest\GooleSampleHtmlSourceFromBrowser\conveyancing software.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestSamples\ServiceTest\GoodSampleHtmlSourceFromCode\best bike.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

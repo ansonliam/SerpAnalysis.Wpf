@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CsvHelper;
+using CsvHelper.Configuration;
 using NuGet.Frameworks;
 using NUnit.Framework;
 using SerpAnalysis.Core.BusinessServices;
@@ -26,21 +31,13 @@ namespace SerpAnalysis.Test
         [Test]
         public void TestCompanyDomain()
         {
-            var domain = "smokeballwww.com.au";
-
-
             var list = new List<SearchQuery>();
 
-
-
-            list.Add(new SearchQuery("conveyancing software", " https://www.smokeballwww.com.au "));
-            list.Add(new SearchQuery("conveyancing software", "www.smokeballwww.com.au "));
-            list.Add(new SearchQuery("conveyancing software", "www.Smokeballwww.com.au"));
-            list.Add(new SearchQuery("conveyancing software", "WWW.smokeballwww.com.au"));
-
-            foreach (var searchQuery in list)
+            var records = TestCommonService.GetRecordsFromCsv("TestSamples/ModelTest/FakeCompanyDomains.csv");
+            foreach (var record in records)
             {
-                Assert.AreEqual(domain, searchQuery.CompanyDomain);
+                var s = new SearchQuery(record.SearchTermInput, record.UrlDomainInput);
+                Assert.AreEqual(record.CompanyDomain, s.CompanyDomain);
             }
         }
     }
