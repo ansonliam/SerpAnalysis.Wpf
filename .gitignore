@@ -7,3 +7,5 @@ SerpAnalysis.Test/bin
 SerpAnalysis.Test/obj
 SerpAnalysis.Wpf.sln.DotSettings.user
 .vs
+SerpAnalysis.wpf/obj
+SerpAnalysis.wpf/bin
