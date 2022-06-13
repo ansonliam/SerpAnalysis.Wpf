@@ -9,7 +9,7 @@ using SerpAnalysis.Core.CommonServices;
 
 namespace SerpAnalysis.Core.Models
 {
-    public class SearchQuery : ObservableObject
+    public class SearchQuery : ModelBase
     {
         private string _companyDomain;
         private string _keyword;
@@ -33,6 +33,7 @@ namespace SerpAnalysis.Core.Models
             set
             {
                 var domain = value.Trim().ToLower().Replace("https://", "");
+                domain = domain.Trim().ToLower().Replace("/", "");
 
                 if (domain.Substring(0, 4) == "www.")
                 {

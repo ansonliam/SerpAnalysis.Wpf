@@ -8,6 +8,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerpAnalysis.Test", "SerpAnalysis.Test\SerpAnalysis.Test.csproj", "{91B6B3EC-17D1-4563-A6BE-9268E3C4A774}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerpAnalysis.wpf", "SerpAnalysis.wpf\SerpAnalysis.wpf.csproj", "{F4D8FAB4-D3B0-4B4D-9ECA-D1DBAECBA6A0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{548D2D4E-CA61-4AE7-B87F-1DC8C5F4B0D1} = {548D2D4E-CA61-4AE7-B87F-1DC8C5F4B0D1}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

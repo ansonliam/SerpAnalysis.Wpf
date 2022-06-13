@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SerpAnalysis.wpf"
         mc:Ignorable="d"
         Title="Serp Analysis" Height="450" Width="800" MinWidth="800" MinHeight="450" WindowStartupLocation="CenterScreen" WindowStyle="None" 
         AllowsTransparency="True" Background="Transparent" >
@@ -41,13 +40,14 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label Content="Search Keywords:" Style="{StaticResource appTextLabel}" />
-                <TextBox Grid.Column="1" Margin="5"/>
+                <TextBox Grid.Column="1" Margin="5" Text="{Binding KeywordInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <Label Grid.Column="2" Content="Company Domain:" Margin="5" Style="{StaticResource appTextLabel}"/>
-                <TextBox Grid.Column="3" />
+                <TextBox Grid.Column="3" Text="{Binding DomainInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                 <StackPanel Grid.Row="1" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Margin="5" HorizontalAlignment="Center" Padding="30 10" Style="{StaticResource appButton}">Find Positions</Button>
-                    <Button Margin="5" HorizontalAlignment="Center" Padding="30 10" Background="SlateGray" Style="{StaticResource appButton}">Reset</Button>
+                    <Button Command="{Binding ResetCommand}"
+                        Margin="5" HorizontalAlignment="Center" Padding="30 10" Background="SlateGray" Style="{StaticResource appButton}">Reset</Button>
                 </StackPanel>
             </Grid>
             <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 5">
@@ -85,7 +85,7 @@
                 </DataGrid.ColumnHeaderStyle>
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Ranking" MinWidth="150" ElementStyle="{StaticResource ColumnElementStyle}" />
+                    <DataGridTextColumn Header="Ranking" MinWidth="150" ElementStyle="{StaticResource ColumnElementStyle}"  />
                     <DataGridTextColumn Header="Result Url" Width="*" ElementStyle="{StaticResource ColumnElementStyle}" />
                 </DataGrid.Columns>
             </DataGrid>

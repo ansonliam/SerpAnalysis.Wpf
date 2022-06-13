@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Toolkit.Mvvm.DependencyInjection;
+using SerpAnalysis.wpf.ViewModels;
 
 namespace SerpAnalysis.wpf
 {
@@ -20,9 +22,11 @@ namespace SerpAnalysis.wpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ViewModelBase Vm { get; }
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = Vm = Ioc.Default.GetService<MainViewModel>();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)

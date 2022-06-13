@@ -3,7 +3,7 @@ using SerpAnalysis.Core.CommonServices;
 
 namespace SerpAnalysis.Core.Models
 {
-    public class SearchEngine
+    public class SearchEngine : ModelBase
     {
         public SearchEngine(Country country, Provider provider, string searchEngineDomain, SearchEngineParameter parameters)
         {

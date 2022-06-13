@@ -11,7 +11,7 @@ namespace SerpAnalysis.Core.Models
     /// <summary>
     /// 
     /// </summary>
-    public class SearchResult: ObservableObject
+    public class SearchResult : ModelBase
     {
 
         private IList<SearchResultLine> _rankingRecords;
@@ -32,6 +32,6 @@ namespace SerpAnalysis.Core.Models
 
         public string RawData { get; }
 
-        private ICrawler C { get; set; }
+        private IGoogleCrawler C { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace SerpAnalysis.Core.Models
 {
-    public class SearchResultLine : ObservableObject
+    public class SearchResultLine : ModelBase
     {
         private string _resultUrl;
         private int _ranking;

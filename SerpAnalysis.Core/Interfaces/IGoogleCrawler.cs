@@ -10,7 +10,7 @@ using SerpAnalysis.Core.Models;
 
 namespace SerpAnalysis.Core.Interfaces
 {
-    internal interface ICrawler
+    public interface IGoogleCrawler
     {
         public Task<(bool IsSuccessful, HttpStatusCode StatusCode, SearchResult SearchResult, string ResponseContent)> Search(SearchQueryWithEngine se, ICrawlerIntegrationService s);
     }

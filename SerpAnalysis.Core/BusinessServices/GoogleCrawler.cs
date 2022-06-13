@@ -7,7 +7,7 @@ using SerpAnalysis.Core.Models;
 
 namespace SerpAnalysis.Core.BusinessServices
 {
-    public class GoogleCrawler : ICrawler
+    public class GoogleCrawler : IGoogleCrawler
     {
         //TODO: crawl the page and get the result 
         public async Task<(bool IsSuccessful, HttpStatusCode StatusCode, SearchResult SearchResult, string ResponseContent)> 

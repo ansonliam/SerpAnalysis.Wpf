@@ -13,7 +13,7 @@ using SerpAnalysis.Core.Models;
 [assembly: InternalsVisibleTo("SerpAnalysis.Test")]
 namespace SerpAnalysis.Core.BusinessServices
 {
-    internal class CrawlerIntegrationService : ICrawlerIntegrationService
+    public class CrawlerIntegrationService : ICrawlerIntegrationService
     {
         public async Task<HttpResponseMessage> GetHttpResponse(string url)
         {

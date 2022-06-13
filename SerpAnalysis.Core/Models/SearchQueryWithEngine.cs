@@ -7,7 +7,7 @@ using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace SerpAnalysis.Core.Models
 {
-    public class SearchQueryWithEngine : ObservableObject
+    public class SearchQueryWithEngine : ModelBase
     {
         private SearchQuery _query;
         private SearchEngine _engine;
