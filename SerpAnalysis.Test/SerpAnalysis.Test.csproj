@@ -8,22 +8,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="GoodSampleHtmlSourceFromCode\Source1.html" />
-    <None Remove="GoodSampleHtmlSourceFromCode\Source3.html" />
-    <None Remove="GoodSampleHtmlSourceFromCode\Source4.html" />
+    <None Remove="TestSamples\GoodSampleHtmlSourceFromCode\Source1.html" />
+    <None Remove="TestSamples\GoodSampleHtmlSourceFromCode\Source3.html" />
+    <None Remove="TestSamples\GoodSampleHtmlSourceFromCode\Source4.html" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="GoodSampleHtmlSourceFromCode\Source1.html">
+    <Content Include="TestSamples\GoodSampleHtmlSourceFromCode\Source1.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="GoodSampleHtmlSourceFromCode\Source3.html">
+    <Content Include="TestSamples\GoodSampleHtmlSourceFromCode\Source3.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="GoodSampleHtmlSourceFromCode\Source4.html">
+    <Content Include="TestSamples\GoodSampleHtmlSourceFromCode\Source4.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="GooleSampleHtmlSourceFromBrowser\Source2.html">
+    <Content Include="TestSamples\GooleSampleHtmlSourceFromBrowser\Source2.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -40,10 +40,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="GooleSampleHtmlSourceFromBrowser\Source5.html">
+    <None Update="TestSamples\GooleSampleHtmlSourceFromBrowser\Source5.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="GoodSampleHtmlSourceFromCode\Source6.html">
+    <None Update="TestSamples\GoodSampleHtmlSourceFromCode\Source6.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
