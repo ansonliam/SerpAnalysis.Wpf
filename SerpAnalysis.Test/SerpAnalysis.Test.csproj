@@ -56,7 +56,7 @@
     <None Update="TestSamples\ServiceTest\GoodSampleHtmlSourceFromCode\best bike.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestSamples\ServiceTest\TestCrawlerIntegrationService.csv">
+    <None Update="TestSamples\ServiceTest\MockCrawlerIntegrationService.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -14,13 +14,29 @@ namespace SerpAnalysis.Core.Models
     public class SearchResult : ModelBase
     {
 
-        private IList<SearchResultLine> _rankingRecords;
 
         public SearchResult(SearchQueryWithEngine searchQueryWithEngine, string rawData)
         {
             SearchQuery = searchQueryWithEngine;
             RawData = rawData;
         }
+
+        public string FilterRankingsBasedOnDomain()
+        {
+            var domain = SearchQuery.Query.CompanyDomain;
+
+            var records = RankingRecords.Where(x => x.ResultUrl.Contains(domain)).Select(x=> x.Ranking);
+            var result = String.Join(", ", records.ToArray());
+
+            if (result == "")
+                return "0";
+            return result;
+        }
+
+
+
+        private IList<SearchResultLine> _rankingRecords;
+
 
         public SearchQueryWithEngine SearchQuery { get; }
 
@@ -31,7 +47,5 @@ namespace SerpAnalysis.Core.Models
         }
 
         public string RawData { get; }
-
-        private IGoogleCrawler C { get; set; }
     }
 }

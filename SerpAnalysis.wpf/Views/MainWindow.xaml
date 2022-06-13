@@ -45,14 +45,15 @@
                 <TextBox Grid.Column="3" Text="{Binding DomainInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                 <StackPanel Grid.Row="1" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Margin="5" HorizontalAlignment="Center" Padding="30 10" Style="{StaticResource appButton}">Find Positions</Button>
+                    <Button Command="{Binding FindPositionCommand}"
+                        Margin="5" HorizontalAlignment="Center" Padding="30 10" Style="{StaticResource appButton}">Find Positions</Button>
                     <Button Command="{Binding ResetCommand}"
                         Margin="5" HorizontalAlignment="Center" Padding="30 10" Background="SlateGray" Style="{StaticResource appButton}">Reset</Button>
                 </StackPanel>
             </Grid>
             <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 5">
                 <Label Style="{StaticResource appTextLabel}">Result:</Label>
-                <TextBox IsReadOnly="True" MinWidth="350" Background="#EBEBE4" />
+                <TextBox IsReadOnly="True" MinWidth="350" Background="#EBEBE4" Text="{Binding ResultRankingStr}"/>
             </StackPanel>
 
             <!-- ___________  Data Grid     ___________ -->

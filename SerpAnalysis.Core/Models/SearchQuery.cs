@@ -35,7 +35,7 @@ namespace SerpAnalysis.Core.Models
                 var domain = value.Trim().ToLower().Replace("https://", "");
                 domain = domain.Trim().ToLower().Replace("/", "");
 
-                if (domain.Substring(0, 4) == "www.")
+                if (domain.Length > 4 && domain.Substring(0, 4) == "www.")
                 {
                     domain = domain.Substring(4, domain.Length - 4);
                 }

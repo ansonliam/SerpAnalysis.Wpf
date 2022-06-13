@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -9,7 +10,7 @@ using SerpAnalysis.Core.Interfaces;
 
 namespace SerpAnalysis.Test.Mock
 {
-    internal class MockCrawlerIntegrationService : ICrawlerIntegrationService
+    public class MockCrawlerIntegrationService : ICrawlerIntegrationService
     {
         public MockCrawlerIntegrationService(string filePath,string htmlContent)
         {
@@ -27,6 +28,13 @@ namespace SerpAnalysis.Test.Mock
             r.Content = new StringContent(HtmlContent);
 
             return r;
+        }
+
+
+        public static ICrawlerIntegrationService GetMockCrawlerIntegrationService()
+        {
+            var filePath = "TestSamples/ServiceTest/GoodSampleHtmlSourceFromCode/conveyancing software.html";
+            return new MockCrawlerIntegrationService(filePath, File.ReadAllText(filePath));
         }
     }
 }

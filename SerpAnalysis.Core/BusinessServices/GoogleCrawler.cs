@@ -15,6 +15,7 @@ namespace SerpAnalysis.Core.BusinessServices
         {
             var response = await s.GetHttpResponse(searchQueryWithEngine.EncodeUrlWithKeywords());
 
+
             if (response.StatusCode != HttpStatusCode.OK)
             {
                 var errorContent = await response.Content.ReadAsStringAsync();
@@ -67,6 +68,7 @@ namespace SerpAnalysis.Core.BusinessServices
                 l.Add(item);
                 Debug.WriteLine($"Ranking: {item.Ranking}, Url: {item.ResultUrl}");
             }
+
 
             var result = new SearchResult(se, rawHttpBody);
             result.RankingRecords = l;

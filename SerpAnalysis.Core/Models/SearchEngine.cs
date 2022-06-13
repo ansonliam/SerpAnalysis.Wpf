@@ -5,6 +5,13 @@ namespace SerpAnalysis.Core.Models
 {
     public class SearchEngine : ModelBase
     {
+        /// <summary>
+        /// If you need GoogleAu SearchEngine object, You can use BsUtilities.GetGoogleAuSearchEngine()
+        /// </summary>
+        /// <param name="country"></param>
+        /// <param name="provider"></param>
+        /// <param name="searchEngineDomain"></param>
+        /// <param name="parameters"></param>
         public SearchEngine(Country country, Provider provider, string searchEngineDomain, SearchEngineParameter parameters)
         {
             Country = country;
