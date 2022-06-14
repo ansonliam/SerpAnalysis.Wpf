@@ -65,7 +65,7 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Style="{StaticResource appTextLabel}">Result:</Label>
+                <Label Style="{StaticResource appTextLabel}">Ranking Result:</Label>
                 <TextBox Grid.Column="1" IsReadOnly="True" Background="#EBEBE4" Text="{Binding ResultRankingStr}"/>
             </Grid>
 
