@@ -5,8 +5,12 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
+using NLog;
+using NLog.Extensions.Logging;
+using NLog.Fluent;
 using SerpAnalysis.Core.BusinessServices;
 using SerpAnalysis.Core.Interfaces;
 using SerpAnalysis.wpf.ViewModels;
@@ -20,6 +24,12 @@ namespace SerpAnalysis.wpf
     {
         public App()
         {
+            var config = new ConfigurationBuilder()
+                .SetBasePath(System.IO.Directory.GetCurrentDirectory())
+                .AddJsonFile("NLog.json", optional: true, reloadOnChange: true).Build();
+            LogManager.Configuration = new NLogLoggingConfiguration(config.GetSection("NLog"));
+
+
             Services = ConfigureServices();
             Ioc.Default.ConfigureServices(Services);
         }
@@ -28,11 +38,11 @@ namespace SerpAnalysis.wpf
         {
             var w = new MainWindow();
             w.Show();
+            LogManager.GetCurrentClassLogger().Trace("MainWindow Showed");
             base.OnStartup(e);
         }
 
 
-        public IServiceProvider Services { get; }
 
         private static IServiceProvider ConfigureServices()
         {
@@ -43,6 +53,14 @@ namespace SerpAnalysis.wpf
             services.AddTransient<MainViewModel, MainViewModel>();
 
             return services.BuildServiceProvider();
+        }
+
+        public IServiceProvider Services { get; }
+
+
+        public static ILogger GetLogger(string classname)
+        {
+            return LogManager.GetLogger(classname);
         }
     }
 }

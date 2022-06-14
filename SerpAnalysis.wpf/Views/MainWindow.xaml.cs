@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Extensions.Logging;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
+using NLog;
 using SerpAnalysis.wpf.ViewModels;
 
 namespace SerpAnalysis.wpf

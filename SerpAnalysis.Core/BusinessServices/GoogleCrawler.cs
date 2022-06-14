@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Net;
 using System.Text;
+using NLog;
 using SerpAnalysis.Core.CommonServices;
 using SerpAnalysis.Core.Interfaces;
 using SerpAnalysis.Core.Models;
@@ -73,7 +74,7 @@ namespace SerpAnalysis.Core.BusinessServices
                 item.Ranking = ranking++;
                 item.ResultUrl = url;
                 l.Add(item);
-                Debug.WriteLine($"Ranking: {item.Ranking}, Url: {item.ResultUrl}");
+                LogManager.GetCurrentClassLogger().Debug($"Ranking: {item.Ranking}, Url: {item.ResultUrl}");
             }
 
 

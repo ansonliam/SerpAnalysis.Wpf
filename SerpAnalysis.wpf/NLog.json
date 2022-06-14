@@ -1,0 +1,39 @@
+{
+  "NLog": {
+    "internalLogLevel": "Warn",
+    "internalLogFile": "Logs\\nlog-internal.log",
+    "extensions": {
+      "NLog.Extensions.Logging": {
+        "assembly": "NLog.Extensions.Logging"
+      }
+    },
+    "variables": {
+      "logdir": "Logs"
+    },
+    "targets": {
+      "vs": {
+        "type": "Debugger",
+        "layout": "${longdate} | ${level:uppercase=true} | ${logger} | ${message} | ${all-event-properties}  "
+      },
+      "file": {
+        "type": "File",
+        "layout": "${longdate} | ${level:uppercase=true} | ${logger} | ${message} | ${all-event-properties} ",
+        "filename": "${var:logdir}/${shortdate}_${appdomain:format={1\\}}.log",
+        "archiveEvery": "Day",
+        "maxArchiveFiles": 360
+      }
+    },
+    "rules": [
+      {
+        "logger": "*",
+        "minLevel": "Trace",
+        "writeTo": "vs"
+      },
+      {
+        "logger": "*",
+        "minLevel": "Trace",
+        "writeTo": "file"
+      }
+    ]
+  }
+}

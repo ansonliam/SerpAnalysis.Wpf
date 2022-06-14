@@ -23,12 +23,6 @@ namespace SerpAnalysis.Test
         }
 
         [Test]
-        public void Test1()
-        {
-            Assert.Pass();
-        }
-
-        [Test]
         public void TestCompanyDomain()
         {
             var list = new List<SearchQuery>();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
 using System.Net;
@@ -7,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.Input;
+using NLog;
+using NLog.Fluent;
 using SerpAnalysis.Core.BusinessServices;
 using SerpAnalysis.Core.Interfaces;
 using SerpAnalysis.Core.Models;
@@ -19,10 +22,14 @@ namespace SerpAnalysis.wpf.ViewModels
         {
             ResetCommand = new RelayCommand(ResetAll);
             FindPositionCommand = new AsyncRelayCommand(FindPosition);
+            Log = App.GetLogger(this.GetType().Name);
         }
 
         private async Task FindPosition()
         {
+            Log.Debug("FindPosition() Called");
+
+
             ResetResult();
 
             ResultRankingStr = "loading...";
@@ -30,29 +37,53 @@ namespace SerpAnalysis.wpf.ViewModels
 
             var sq = new SearchQuery(KeywordInput, DomainInput);
             var engine = BsUtilities.GetGoogleAuSearchEngine();
-
             var se = new SearchQueryWithEngine(sq, engine);
 
 
             var crawler = Ioc.Default.GetService<IGoogleCrawler>();
             var integrationService = Ioc.Default.GetService<ICrawlerIntegrationService>();
+
+            //Log.Debug($"crawler.Search Start, {}:\"{KeywordInput}\", {nameof(DomainInput)}:\"{DomainInput}\", Classes Injected: {crawler.GetType().Name} & {integrationService.GetType().Name}");
+            Log.ForDebugEvent().Message("crawler.Search Start")
+                .Properties(new List<KeyValuePair<string, object>>()
+                {
+                    new(nameof(KeywordInput), KeywordInput),
+                    new(nameof(DomainInput), DomainInput),
+                    new("Crawler Class", crawler.GetType().Name),
+                    new("Integration Class", integrationService.GetType().Name),
+                }).Log();
+
             var result = await crawler.Search(se, integrationService);
+
+            Log.Debug($"crawler.Search End, Result: {result.IsSuccessful}, {result.StatusCode}");
+
 
             if (result.StatusCode != HttpStatusCode.OK)
             {
                 ResultRankingStr = result.ResponseContent;
-                return;
+            }
+            else
+            {
+                ResultRankingStr = result.SearchResult.FilterRankingsAsString();
+                DataGridItems = result.SearchResult.FilterRankingsAsList();
+                Log.Debug($"Filtered Result String: {ResultRankingStr}");
             }
 
-            ResultRankingStr = result.SearchResult.FilterRankingsAsString();
-            DataGridItems = result.SearchResult.FilterRankingsAsList();
+
+            LogManager.GetCurrentClassLogger().Debug("FindPosition() Ended");
         }
+
+
+        private ILogger Log { get; }
 
         public void ResetAll()
         {
+            Log.Debug("ResetAll() Called");
             KeywordInput = "";
             DomainInput = "";
             ResetResult();
+
+            Log.Debug("ResetAll() Ended");
         }
 
         public void ResetResult()
@@ -60,8 +91,6 @@ namespace SerpAnalysis.wpf.ViewModels
             DataGridItems = Enumerable.Empty<SearchResultLine>();
             ResultRankingStr = "";
         }
-
-
 
         public IAsyncRelayCommand FindPositionCommand { get; }
         public IRelayCommand ResetCommand { get; }
