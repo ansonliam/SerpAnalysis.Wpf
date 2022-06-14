@@ -1,5 +1,4 @@
-# SerpAnalysis.Wpf
-Serp Analysis
+# Serp Analysis
 
 This program is written in C#.NET 6 WPF with MVVM Toolkit. it helps the people who does not have access to the Paid Serp Tools and would like to find out the rankings of their interest in Google.
 
