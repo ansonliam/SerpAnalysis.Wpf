@@ -1,9 +1,10 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using SerpAnalysis.wpf.ViewModels;
 
-namespace SerpAnalysis.wpf
+namespace SerpAnalysis.Wpf.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -16,6 +17,23 @@ namespace SerpAnalysis.wpf
             InitializeComponent();
             this.DataContext = Vm = Ioc.Default.GetService<MainViewModel>();
         }
+
+        bool _shown;
+
+        protected override void OnContentRendered(EventArgs e)
+        {
+            base.OnContentRendered(e);
+
+            if (_shown)
+                return;
+
+            _shown = true;
+
+            // Your code here.
+            TxtKeyword.SelectAll();
+            TxtKeyword.Focus();
+        }
+
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {

@@ -8,6 +8,7 @@ using NLog.Extensions.Logging;
 using SerpAnalysis.Core.BusinessServices;
 using SerpAnalysis.Core.Interfaces;
 using SerpAnalysis.wpf.ViewModels;
+using SerpAnalysis.Wpf.Views;
 
 namespace SerpAnalysis.wpf
 {
