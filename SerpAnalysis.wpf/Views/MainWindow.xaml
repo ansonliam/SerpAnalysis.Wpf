@@ -15,6 +15,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
+            <!-- ___________  Header Section     ___________ -->
             <StackPanel MouseDown="StackPanel_MouseDown" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#f9f7f5" Margin="0 5">
                 <Border Padding="7" />
                 <Grid>
@@ -42,6 +43,8 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
+
+                <!-- ___________  Input Section   ___________ -->
                 <Label Content="Search Keywords:" Style="{StaticResource appTextLabel}" />
                 <TextBox Grid.Column="1" Margin="5" Text="{Binding KeywordInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <Label Grid.Column="2" Content="Company Domain:" Margin="5" Style="{StaticResource appTextLabel}"/>
@@ -54,10 +57,16 @@
                         Margin="5" HorizontalAlignment="Center" Padding="30 10" Background="SlateGray" Style="{StaticResource appButton}">Reset</Button>
                 </StackPanel>
             </Grid>
-            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 5">
+
+            <!-- ___________  Result Section     ___________ -->
+            <Grid Grid.Row="2" Margin="0 5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
                 <Label Style="{StaticResource appTextLabel}">Result:</Label>
-                <TextBox IsReadOnly="True" MinWidth="350" Background="#EBEBE4" Text="{Binding ResultRankingStr}"/>
-            </StackPanel>
+                <TextBox Grid.Column="1" IsReadOnly="True" Background="#EBEBE4" Text="{Binding ResultRankingStr}"/>
+            </Grid>
 
             <!-- ___________  Data Grid     ___________ -->
             <DataGrid Grid.Row="3" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" HeadersVisibility="Column" Background="White" 
@@ -89,7 +98,7 @@
                 </DataGrid.ColumnHeaderStyle>
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Ranking" MinWidth="150" Binding="{Binding Ranking}" ElementStyle="{StaticResource ColumnElementStyle}"  />
+                    <DataGridTextColumn Header="Ranking" MinWidth="80" Binding="{Binding Ranking}" ElementStyle="{StaticResource ColumnElementStyle}"  />
                     <DataGridTextColumn Header="Result Url" Width="*" Binding="{Binding ResultUrl}" ElementStyle="{StaticResource ColumnElementStyle}" />
                 </DataGrid.Columns>
             </DataGrid>
