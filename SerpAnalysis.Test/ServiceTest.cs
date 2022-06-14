@@ -32,7 +32,7 @@ namespace SerpAnalysis.Test
                 var l = new List<MockCrawlerIntegrationService>();
                 foreach (var file in Directory.EnumerateFiles(("TestSamples/ServiceTest/GoodSampleHtmlSourceFromCode")))
                 {
-                    l.Add(new MockCrawlerIntegrationService(file, File.ReadAllText(file)));
+                    l.Add(new MockCrawlerIntegrationService(file, File.ReadAllText(file), HttpStatusCode.OK));
                 }
 
 

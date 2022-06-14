@@ -39,7 +39,6 @@ namespace SerpAnalysis.wpf
             var services = new ServiceCollection();
 
             services.AddTransient<IGoogleCrawler, GoogleCrawler>();
-            //services.AddTransient<ICrawlerIntegrationService>(provider => Test.Mock.MockCrawlerIntegrationService.GetMockCrawlerIntegrationService());
             services.AddTransient<ICrawlerIntegrationService, CrawlerIntegrationService>();
             services.AddTransient<MainViewModel, MainViewModel>();
 

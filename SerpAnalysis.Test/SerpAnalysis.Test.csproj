@@ -40,7 +40,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SerpAnalysis.Core\SerpAnalysis.Core.csproj" />
-    <ProjectReference Include="..\SerpAnalysis.wpf\SerpAnalysis.wpf.csproj" />
+    <ProjectReference Include="..\SerpAnalysis.wpf\SerpAnalysis.Wpf.csproj" />
   </ItemGroup>
 
   <ItemGroup>

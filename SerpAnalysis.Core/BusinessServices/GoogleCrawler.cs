@@ -15,12 +15,15 @@ namespace SerpAnalysis.Core.BusinessServices
         {
             var response = await s.GetHttpResponse(searchQueryWithEngine.EncodeUrlWithKeywords());
 
-
+            if (response.StatusCode == HttpStatusCode.TooManyRequests)
+            {
+                return (false, response.StatusCode, null, "Too Many Requests and Google blocked us. It may need to wait for a few hours (6+) before releasing, or change the IP and try again.");
+            }
             if (response.StatusCode != HttpStatusCode.OK)
             {
                 var errorContent = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(errorContent);
-                return (false, response.StatusCode, null, errorContent);
+                return (false, response.StatusCode, null, $"Requst failed, HTTP Status Code: {Enum.GetName(response.StatusCode)}. Please contact the maintainer.");
             }
 
             var content = await response.Content.ReadAsStringAsync();

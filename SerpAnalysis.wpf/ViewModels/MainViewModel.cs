@@ -24,6 +24,10 @@ namespace SerpAnalysis.wpf.ViewModels
         private async Task FindPosition()
         {
             ResetResult();
+
+            ResultRankingStr = "loading...";
+
+
             var sq = new SearchQuery(KeywordInput, DomainInput);
             var engine = BsUtilities.GetGoogleAuSearchEngine();
 
@@ -35,7 +39,10 @@ namespace SerpAnalysis.wpf.ViewModels
             var result = await crawler.Search(se, integrationService);
 
             if (result.StatusCode != HttpStatusCode.OK)
+            {
+                ResultRankingStr = result.ResponseContent;
                 return;
+            }
 
             ResultRankingStr = result.SearchResult.FilterRankingsAsString();
             DataGridItems = result.SearchResult.FilterRankingsAsList();

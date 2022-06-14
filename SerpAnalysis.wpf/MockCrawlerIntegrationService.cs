@@ -12,7 +12,7 @@ namespace SerpAnalysis.Test.Mock
 {
     public class MockCrawlerIntegrationService : ICrawlerIntegrationService
     {
-        public MockCrawlerIntegrationService(string filePath,string htmlContent, HttpStatusCode statusCode)
+        public MockCrawlerIntegrationService(string filePath, string htmlContent, HttpStatusCode statusCode)
         {
             FilePath = filePath;
             HtmlContent = htmlContent;
