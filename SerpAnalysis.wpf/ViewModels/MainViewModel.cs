@@ -55,13 +55,14 @@ namespace SerpAnalysis.wpf.ViewModels
         }
 
 
+
         public IAsyncRelayCommand FindPositionCommand { get; }
         public IRelayCommand ResetCommand { get; }
 
-        private string _keywordInput;
-        private string _domainInput;
-        private string _resultRankingStr;
-        private IEnumerable<SearchResultLine> _dataGridItems;
+        private string _keywordInput = "conveyancing software";
+        private string _domainInput = "www.smokeball.com.au";
+        private string _resultRankingStr = "";
+        private IEnumerable<SearchResultLine> _dataGridItems = new List<SearchResultLine>();
 
         public string KeywordInput
         {

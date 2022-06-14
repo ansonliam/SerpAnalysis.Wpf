@@ -24,6 +24,7 @@ namespace SerpAnalysis.Core.BusinessServices
             }
 
             var content = await response.Content.ReadAsStringAsync();
+            //Debug.WriteLine(content);
 
             try
             {
@@ -47,7 +48,7 @@ namespace SerpAnalysis.Core.BusinessServices
             }
 
 
-
+            var relatedSearchIndex = rawHttpBody.IndexOf("\">Related searches</");
 
             IList<SearchResultLine> l = new List<SearchResultLine>();
             var ranking = 1;
@@ -60,6 +61,9 @@ namespace SerpAnalysis.Core.BusinessServices
                 var urlStartIndex = index + keyword.Length;
                 var urlLength = rawHttpBody.IndexOf("&amp;", urlStartIndex) - urlStartIndex;
                 var url = rawHttpBody.Substring(urlStartIndex, urlLength);
+
+                if (relatedSearchIndex >= 0 && urlStartIndex > relatedSearchIndex) //any urls below related search section is not relevant.
+                    continue;
 
 
                 var item = new SearchResultLine();

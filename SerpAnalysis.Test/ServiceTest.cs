@@ -30,7 +30,7 @@ namespace SerpAnalysis.Test
                 var sqWithEngine = new SearchQueryWithEngine(sq, se);
 
                 var l = new List<MockCrawlerIntegrationService>();
-                foreach (var file in Directory.EnumerateFiles(("GoodSampleHtmlSourceFromCode")))
+                foreach (var file in Directory.EnumerateFiles(("TestSamples/ServiceTest/GoodSampleHtmlSourceFromCode")))
                 {
                     l.Add(new MockCrawlerIntegrationService(file, File.ReadAllText(file)));
                 }
@@ -58,7 +58,7 @@ namespace SerpAnalysis.Test
         [Test]
         public async Task TestCrawlerIntegrationService()
         {
-            var records = TestCommonService.GetRecordsFromCsv("TestSamples/ServiceTest/TestCrawlerIntegrationService.csv");
+            var records = CommonServiceTest.GetRecordsFromCsv("TestSamples/ServiceTest/TestCrawlerIntegrationService.csv");
 
             var currIndex = 0;
             var recordCount = records.Count;

@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SerpAnalysis.Core\SerpAnalysis.Core.csproj" />
-    <ProjectReference Include="..\SerpAnalysis.Test\SerpAnalysis.Test.csproj" />
   </ItemGroup>
 
 </Project>

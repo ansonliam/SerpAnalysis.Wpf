@@ -10,7 +10,7 @@ using SerpAnalysis.Core.Models;
 
 namespace SerpAnalysis.Test
 {
-    internal class TestCommonService
+    internal class CommonServiceTest
     {
         internal static List<dynamic> GetRecordsFromCsv(string filePath)
         {

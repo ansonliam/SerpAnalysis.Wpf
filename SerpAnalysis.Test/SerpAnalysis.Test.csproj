@@ -1,10 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
+
+    <OutputType>Library</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,6 +40,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SerpAnalysis.Core\SerpAnalysis.Core.csproj" />
+    <ProjectReference Include="..\SerpAnalysis.wpf\SerpAnalysis.wpf.csproj" />
   </ItemGroup>
 
   <ItemGroup>

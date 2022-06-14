@@ -33,7 +33,7 @@ namespace SerpAnalysis.Test
         {
             var list = new List<SearchQuery>();
 
-            var records = TestCommonService.GetRecordsFromCsv("TestSamples/ModelTest/FakeCompanyDomains.csv");
+            var records = CommonServiceTest.GetRecordsFromCsv("TestSamples/ModelTest/FakeCompanyDomains.csv");
             foreach (var record in records)
             {
                 var s = new SearchQuery(record.SearchTermInput, record.UrlDomainInput);
