@@ -95,6 +95,7 @@
                         <Setter Property="Background" Value="Transparent" />
                         <Setter Property="BorderBrush" Value="Black" />
                         <Setter Property="BorderThickness" Value="0 0 0 1" />
+                        <Setter Property="Margin" Value="5" />
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
 
