@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0-windows</TargetFramework>
@@ -59,7 +59,7 @@
     <None Update="TestSamples\ServiceTest\GoodSampleHtmlSourceFromCode\best bike.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestSamples\ServiceTest\MockCrawlerIntegrationService.csv">
+    <None Update="TestSamples\ServiceTest\TestCrawlerIntegrationService.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
