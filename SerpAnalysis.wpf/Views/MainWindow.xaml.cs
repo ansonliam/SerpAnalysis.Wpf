@@ -37,7 +37,7 @@ namespace SerpAnalysis.wpf
             }
         }
 
-        private void Ellipse_MouseDown(object sender, MouseButtonEventArgs e)
+        private void EllipseMax_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if(WindowState == WindowState.Maximized)
                 this.WindowState = WindowState.Normal;
@@ -45,12 +45,12 @@ namespace SerpAnalysis.wpf
                 this.WindowState = WindowState.Maximized;
         }
 
-        private void Ellipse_MouseDown_1(object sender, MouseButtonEventArgs e)
+        private void EllipseMin_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
 
-        private void Ellipse_MouseDown_2(object sender, MouseButtonEventArgs e)
+        private void EllipseClose_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Close();
         }
@@ -59,7 +59,7 @@ namespace SerpAnalysis.wpf
         {
             if (e.ClickCount == 2)
             {
-                Ellipse_MouseDown(this, null);
+                EllipseMax_MouseDown(this, null);
             }
         }
     }

@@ -21,9 +21,9 @@
                 <Grid>
                     <Label FontSize="21" HorizontalAlignment="Center" Margin="0 0 0 10">SERP ANALYSIS TOOL</Label>
                     <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top">
-                        <Ellipse Fill="#ff6258" Width="13" Height="13" MouseDown="Ellipse_MouseDown_2" />
-                        <Ellipse Fill="#ffbf2f" Width="13" Height="13" Margin="5 0" MouseDown="Ellipse_MouseDown_1" />
-                        <Ellipse Fill="#2acb42" Width="13" Height="13" MouseDown="Ellipse_MouseDown" />
+                        <Ellipse Fill="#ff6258" Width="13" Height="13" MouseDown="EllipseClose_MouseDown" />
+                        <Ellipse Fill="#ffbf2f" Width="13" Height="13" Margin="5 0" MouseDown="EllipseMin_MouseDown" />
+                        <Ellipse Fill="#2acb42" Width="13" Height="13" MouseDown="EllipseMax_MouseDown" />
                     </StackPanel>
                 </Grid>
             </StackPanel>
