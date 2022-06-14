@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.DirectoryServices.ActiveDirectory;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.Input;
 using NLog;
-using NLog.Fluent;
 using SerpAnalysis.Core.BusinessServices;
 using SerpAnalysis.Core.Interfaces;
 using SerpAnalysis.Core.Models;

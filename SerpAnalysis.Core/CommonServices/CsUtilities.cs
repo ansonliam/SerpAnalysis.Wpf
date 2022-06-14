@@ -1,7 +1,4 @@
-﻿using System.Xml;
-using System.Xml.Serialization;
-
-namespace SerpAnalysis.Core.CommonServices
+﻿namespace SerpAnalysis.Core.CommonServices
 {
     public class CsUtilities
     {

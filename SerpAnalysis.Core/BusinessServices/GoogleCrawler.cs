@@ -1,8 +1,5 @@
-﻿using System.Diagnostics;
-using System.Net;
-using System.Text;
+﻿using System.Net;
 using NLog;
-using SerpAnalysis.Core.CommonServices;
 using SerpAnalysis.Core.Interfaces;
 using SerpAnalysis.Core.Models;
 

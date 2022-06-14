@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Serialization;
+﻿using System.Runtime.CompilerServices;
 using NLog;
 using SerpAnalysis.Core.Interfaces;
-using SerpAnalysis.Core.Models;
 
 [assembly: InternalsVisibleTo("SerpAnalysis.Test")]
 namespace SerpAnalysis.Core.BusinessServices

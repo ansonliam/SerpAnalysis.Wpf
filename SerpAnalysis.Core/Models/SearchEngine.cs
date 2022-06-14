@@ -1,5 +1,4 @@
-﻿using SerpAnalysis.Core.BusinessServices;
-using SerpAnalysis.Core.CommonServices;
+﻿using SerpAnalysis.Core.CommonServices;
 
 namespace SerpAnalysis.Core.Models
 {

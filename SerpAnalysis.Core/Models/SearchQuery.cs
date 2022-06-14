@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
-using SerpAnalysis.Core.BusinessServices;
-using SerpAnalysis.Core.CommonServices;
-
-namespace SerpAnalysis.Core.Models
+﻿namespace SerpAnalysis.Core.Models
 {
     public class SearchQuery : ModelBase
     {

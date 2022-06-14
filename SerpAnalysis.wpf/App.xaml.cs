@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using NLog;
 using NLog.Extensions.Logging;
-using NLog.Fluent;
 using SerpAnalysis.Core.BusinessServices;
 using SerpAnalysis.Core.Interfaces;
 using SerpAnalysis.wpf.ViewModels;

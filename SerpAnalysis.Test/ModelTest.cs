@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CsvHelper;
-using CsvHelper.Configuration;
-using NuGet.Frameworks;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
-using SerpAnalysis.Core.BusinessServices;
 using SerpAnalysis.Core.Models;
 
 namespace SerpAnalysis.Test
