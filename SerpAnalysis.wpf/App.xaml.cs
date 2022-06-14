@@ -20,7 +20,7 @@ namespace SerpAnalysis.wpf
     {
         public App()
         {
-            var Services = ConfigureServices();
+            Services = ConfigureServices();
             Ioc.Default.ConfigureServices(Services);
         }
 
