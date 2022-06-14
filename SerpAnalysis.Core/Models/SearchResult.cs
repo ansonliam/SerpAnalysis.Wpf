@@ -21,7 +21,10 @@ namespace SerpAnalysis.Core.Models
             RawData = rawData;
         }
 
-        public string FilterRankingsBasedOnDomain()
+        /// <summary>
+        /// This method is to export the records that are matched with the domain in SearchQuery.
+        /// </summary>
+        public string FilterRankingsAsString()
         {
             var domain = SearchQuery.Query.CompanyDomain;
 
@@ -33,6 +36,16 @@ namespace SerpAnalysis.Core.Models
             return result;
         }
 
+        /// <summary>
+        /// This method is to export the records that are matched with the domain in SearchQuery.
+        /// </summary>
+        public IEnumerable<SearchResultLine> FilterRankingsAsList()
+        {
+            var domain = SearchQuery.Query.CompanyDomain;
+
+            var records = RankingRecords.Where(x => x.ResultUrl.Contains(domain));
+            return records;
+        }
 
 
         private IList<SearchResultLine> _rankingRecords;

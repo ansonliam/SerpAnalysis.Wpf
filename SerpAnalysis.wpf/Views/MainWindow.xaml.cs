@@ -54,5 +54,13 @@ namespace SerpAnalysis.wpf
         {
             Close();
         }
+
+        private void StackPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 2)
+            {
+                Ellipse_MouseDown(this, null);
+            }
+        }
     }
 }

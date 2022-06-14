@@ -37,8 +37,8 @@ namespace SerpAnalysis.wpf.ViewModels
             if (result.StatusCode != HttpStatusCode.OK)
                 return;
 
-            ResultRankingStr = result.SearchResult.FilterRankingsBasedOnDomain();
-
+            ResultRankingStr = result.SearchResult.FilterRankingsAsString();
+            DataGridItems = result.SearchResult.FilterRankingsAsList();
         }
 
         public void ResetAll()
@@ -50,6 +50,7 @@ namespace SerpAnalysis.wpf.ViewModels
 
         public void ResetResult()
         {
+            DataGridItems = Enumerable.Empty<SearchResultLine>();
             ResultRankingStr = "";
         }
 
@@ -60,6 +61,7 @@ namespace SerpAnalysis.wpf.ViewModels
         private string _keywordInput;
         private string _domainInput;
         private string _resultRankingStr;
+        private IEnumerable<SearchResultLine> _dataGridItems;
 
         public string KeywordInput
         {
@@ -77,6 +79,13 @@ namespace SerpAnalysis.wpf.ViewModels
         {
             get => _resultRankingStr;
             set => SetProperty(ref _resultRankingStr, value);
+        }
+
+
+        public IEnumerable<SearchResultLine> DataGridItems
+        {
+            get => _dataGridItems;
+            set => SetProperty(ref _dataGridItems, value);
         }
     }
 }
